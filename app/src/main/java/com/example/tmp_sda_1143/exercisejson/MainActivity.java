@@ -2,6 +2,7 @@ package com.example.tmp_sda_1143.exercisejson;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.TextView;
 
@@ -121,10 +122,7 @@ public class MainActivity extends AppCompatActivity {
      * (color: orange, category: hue, rgba: 255,165,0,1, hex: #FA0),
      * then serializes the JSON data to a string and writes it into the textView.
      */
-    // TODO - The app stops when clicking on the modify button.
-    // The functionality works without Android view, so
-    // there's smth wrong with connecting it to the view
-    public void modify() {
+    public void modify(View view) {
         try {
             // Create a new color
             int[] arr = {255, 165, 0, 1};
@@ -148,6 +146,7 @@ public class MainActivity extends AppCompatActivity {
             // Write the obtained string to the textView
             TextView input = (TextView) findViewById(R.id.modify);
             input.setText(content);
+            input.setMovementMethod(new ScrollingMovementMethod());
         } catch (JSONException e) {
             e.printStackTrace();
         }
