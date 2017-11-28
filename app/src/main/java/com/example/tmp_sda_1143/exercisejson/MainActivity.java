@@ -132,9 +132,18 @@ public class MainActivity extends AppCompatActivity {
             JSONObject colorJSON = new JSONObject();
             colorJSON.put("color", newColor.colorString);
             colorJSON.put("category", newColor.category);
+
             JSONObject code = new JSONObject();
-            code.put("rgba", newColor.code.rgba);
+
+            JSONArray rgbaJson = new JSONArray();
+            rgbaJson.put(0, arr[0]);
+            rgbaJson.put(1, arr[1]);
+            rgbaJson.put(2, arr[2]);
+            rgbaJson.put(3, arr[3]);
+
+            code.put("rgba", rgbaJson);
             code.put("hex", newColor.code.hex);
+
             colorJSON.put("code", code);
 
             // Add the new color in JSON format to the storage
